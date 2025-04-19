@@ -2,7 +2,6 @@ import React from 'react'
 import WorkspaceHeader from "./_components/WorkspaceHeader";
 import Sidebar from './_components/Sidebar';
 import { ThemeProvider } from '../../../context/ThemeContext';
-
 function WorkspaceLayout({children}) {
   return (
     <ThemeProvider>
@@ -16,5 +15,4 @@ function WorkspaceLayout({children}) {
     </ThemeProvider>
   )
 }
-
 export default WorkspaceLayout
