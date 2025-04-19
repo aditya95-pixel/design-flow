@@ -30,7 +30,6 @@ function IntroOptions() {
 
   return (
     <div className="min-h-screen mt-2 px-4 sm:px-6 lg:px-8 font-sans dark:bg-gray-900 bg-rose-100">
-      {/* Banner Section */}
       <div className='relative'>
         <Image 
           src={"/banner.png"}
@@ -43,8 +42,6 @@ function IntroOptions() {
           Workspace
         </h2>
       </div>
-
-      {/* Options Grid */}
       <div className='mt-2 sm:mt-10 font-sa'>
         <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4 sm:gap-6 justify-items-center'>
           {canvasSizeOptions.map((option, index) => (
