@@ -23,5 +23,4 @@ function FillColor() {
     </div>
   )
 }
-
 export default FillColor
