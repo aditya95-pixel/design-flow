@@ -9,7 +9,6 @@ function TemplatesList() {
     const onTemplateSelect=(template)=>{
         if(!canvasEditor) return;
         setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-        // Clear redo stack when a new action is performed
         setRedoStack([]);
         if(canvasEditor){
             canvasEditor.loadFromJSON(template?.jsonData,()=>{
