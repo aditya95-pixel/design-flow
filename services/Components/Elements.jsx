@@ -1,6 +1,5 @@
 import React from 'react'
 import Shapes from '../Sharable/Shapes'
-
 function Elements() {
   return (
     <div>
@@ -8,5 +7,4 @@ function Elements() {
     </div>
   )
 }
-
 export default Elements
