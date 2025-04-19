@@ -100,7 +100,7 @@ function DesignHeader({ DesignInfo }) {
         DesignFlow
       </h1>
 
-      {/* Design Name */}
+      { /*   Design Name    */ }
       <div className="relative w-full sm:flex-1 min-w-[100px]">
         {isEditing ? (
           <input
@@ -136,7 +136,7 @@ function DesignHeader({ DesignInfo }) {
           )}
         </button>
 
-        {/* Save Button */}
+        {   /*  Save Button   */   }
         <Button 
           className="h-9 px-3 sm:px-4 whitespace-nowrap" 
           onClick={onSave}
@@ -145,7 +145,7 @@ function DesignHeader({ DesignInfo }) {
           <span className="ml-2 hidden sm:inline">Save</span>
         </Button>
 
-        {/* Download Button */}
+        {  /*  Download Button  */  }
         <Button 
           className="h-9 px-3 sm:px-4 whitespace-nowrap" 
           onClick={onExport}
@@ -154,7 +154,7 @@ function DesignHeader({ DesignInfo }) {
           <span className="ml-2 hidden sm:inline">Download</span>
         </Button>
 
-        {/* User Button */}
+        {  /*   User Button   */  }
         <div className="ml-1 sm:ml-2">
           <UserButton />
         </div>
