@@ -10,6 +10,7 @@ function CanvasEditor({DesignInfo}) {
     const saveState = () => {
         if (!canvasEditor) return;
         setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
+        // Clear redo stack when a new action is performed
         setRedoStack([]);
     };
 
@@ -30,11 +31,14 @@ function CanvasEditor({DesignInfo}) {
             if(DesignInfo?.jsonTemplate){
                 initCanvas.loadFromJSON(DesignInfo?.jsonTemplate,()=>{
                     initCanvas?.requestRenderAll();
+                    // Save initial state
                     setUndoStack([initCanvas.toJSON()]);
                 });
             }
             setCanvas(initCanvas)
             setCanvasEditor(initCanvas);
+
+            // Set up event listeners for state changes
             initCanvas.on('object:added', saveState);
             initCanvas.on('object:modified', saveState);
             initCanvas.on('object:removed', saveState);
@@ -53,16 +57,18 @@ function CanvasEditor({DesignInfo}) {
                 if(canvasEditor) {
                     const activeObject=canvasEditor.getActiveObject();
                     if(activeObject){
-                        saveState();
+                        saveState(); // Save state before deletion
                         canvasEditor.remove(activeObject);
                         canvasEditor.renderAll();
                     }
                 }
             }
+            // Ctrl+Z for undo
             else if (event.ctrlKey && event.key === 'z') {
                 event.preventDefault();
                 handleUndo();
             }
+            // Ctrl+Y or Ctrl+Shift+Z for redo
             else if ((event.ctrlKey && event.key === 'y') || (event.ctrlKey && event.shiftKey && event.key === 'z')) {
                 event.preventDefault();
                 handleRedo();
@@ -75,7 +81,7 @@ function CanvasEditor({DesignInfo}) {
     },[canvasEditor])
 
     return (
-        <div className='font-sans dark:bg-black bg-rose-100 w-full h-screen '>
+        <div className='font-sans dark:bg-gray-900 bg-rose-100 w-full h-screen '>
             <TopNavBar/>
             <div className=' flex mt-10 items-center justify-center '>
                 <canvas id='canvas' ref={canvasRef}/>
