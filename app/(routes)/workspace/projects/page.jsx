@@ -2,6 +2,7 @@ import React from 'react'
 import RecentDesign from '../_components/RecentDesign'
 import Image from 'next/image'
 import { useTheme } from '../../../../context/ThemeContext';
+
 function Projects() {
   return (
     <div className="p-5 w-full dark:bg-gray-900 bg-rose-100">
@@ -14,5 +15,4 @@ function Projects() {
     </div>
   )
 }
-
 export default Projects;
