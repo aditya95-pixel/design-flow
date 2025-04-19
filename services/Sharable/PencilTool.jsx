@@ -3,7 +3,7 @@ import { useCanvasHook } from '../../context/useCanvasHook';
 import {fabric} from 'fabric';
 
 function PencilTool() {
-    const { canvasEditor, setCanvasEditor, setUndoStack, setRedoStack } = useCanvasHook();
+    const { canvasEditor, setCanvasEditor, setUndoStack, setRedoStack,undoStack } = useCanvasHook();
     const isDrawing = React.useRef(false);
     const path = React.useRef(null);
     const [brushColor, setBrushColor] = useState('#000000');
@@ -99,6 +99,10 @@ function PencilTool() {
                             if (!canvasEditor) return;
                             setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
                             setRedoStack([]);
+                            const lastState = undoStack[undoStack.length - 1];                
+                            canvasEditor.loadFromJSON(lastState, () => {
+                                canvasEditor.renderAll();
+                            }); 
                         }}
                     >
                         Clear
