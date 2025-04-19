@@ -47,7 +47,7 @@ function SearchImages() {
     <div className='mt-5'>
         <h2 className='font-bold dark:text-white text-black'>Search Images</h2>
             <div className='flex gap-2 items-center my-2'>
-                <Input placeholder={'Mountain'} className="text-white" onChange={(e)=>setSearchInput(e.target.value)}/>
+                <Input placeholder={'Mountain'} className="dark:text-white text-black" onChange={(e)=>setSearchInput(e.target.value)}/>
                 <Button onClick={()=>GetImageList(searchInput)} ><SearchIcon/></Button>
             </div>
         <div className="mt-3 grid grid-cols-2 gap-2

@@ -2,7 +2,7 @@ import { mutation } from "./_generated/server";
 import {v} from "convex/values";
 export const CreatedNewUser=mutation({
    args:{
-        name:v.string(),
+        name:v.optional(v.string()),
         email:v.string(),
         picture:v.string(),
    },
