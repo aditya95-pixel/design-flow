@@ -13,13 +13,11 @@ function TextSettingsNavbar() {
     const onDelete=()=>{
       if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
       const activeObject=canvasEditor.getActiveObject();
       if(activeObject){
         canvasEditor.remove(activeObject);
       }
-      
     }
   return (
     <div>
@@ -42,5 +40,4 @@ function TextSettingsNavbar() {
     </div>
   )
 }
-
 export default TextSettingsNavbar
