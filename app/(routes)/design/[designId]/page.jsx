@@ -18,38 +18,22 @@ function DesignEditor() {
     });
 
     const handleUndo = () => {
-        if (undoStack.length === 0 || !canvasEditor) return;
-        
-        // Get the last state from undo stack
-        const lastState = undoStack[undoStack.length - 1];
-        
-        // Save current state to redo stack
-        setRedoStack([...redoStack, canvasEditor.toJSON()]);
-        
-        // Load the previous state
+        if (undoStack.length === 0 || !canvasEditor) return;        
+        const lastState = undoStack[undoStack.length - 1];        
+        setRedoStack([...redoStack, canvasEditor.toJSON()]);        
         canvasEditor.loadFromJSON(lastState, () => {
             canvasEditor.renderAll();
-        });
-        
-        // Remove the last state from undo stack
+        });        
         setUndoStack(undoStack.slice(0, -1));
     };
 
     const handleRedo = () => {
         if (redoStack.length === 0 || !canvasEditor) return;
-        
-        // Get the last state from redo stack
         const lastState = redoStack[redoStack.length - 1];
-        
-        // Save current state to undo stack
         setUndoStack([...undoStack, canvasEditor.toJSON()]);
-        
-        // Load the next state
         canvasEditor.loadFromJSON(lastState, () => {
             canvasEditor.renderAll();
         });
-        
-        // Remove the last state from redo stack
         setRedoStack(redoStack.slice(0, -1));
     };
 
