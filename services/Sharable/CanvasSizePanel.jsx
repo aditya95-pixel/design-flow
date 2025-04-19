@@ -4,7 +4,6 @@ import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
 import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
 import { toast } from 'sonner';
-
 function CanvasSizePanel() {
   const { canvasEditor,setCanvasEditor,setUndoStack,setRedoStack } = useCanvasHook();
   const [dimensions, setDimensions] = useState({
@@ -12,8 +11,6 @@ function CanvasSizePanel() {
     height: 600
   });
   const [isEditing, setIsEditing] = useState(false);
-
-  // Sync with current canvas size
   useEffect(() => {
     if (canvasEditor) {
       setDimensions({
@@ -22,7 +19,6 @@ function CanvasSizePanel() {
       });
     }
   }, [canvasEditor]);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     const numValue = parseInt(value);
@@ -33,11 +29,9 @@ function CanvasSizePanel() {
       }));
     }
   };
-
   const applyDimensions = () => {
     if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
     if (canvasEditor && dimensions.width && dimensions.height) {
       canvasEditor.setDimensions({
@@ -49,11 +43,9 @@ function CanvasSizePanel() {
       setIsEditing(false);
     }
   };
-
   return (
     <div className="bg-white p-4 rounded-lg space-y-4">
-      <h3 className="font-medium text-lg">Canvas Size</h3>
-      
+      <h3 className="font-medium text-lg">Canvas Size</h3>  
       {isEditing ? (
         <div className="space-y-3">
           <div className="flex items-center gap-2">
@@ -86,7 +78,6 @@ function CanvasSizePanel() {
               variant="outline" 
               onClick={() => {
                 setIsEditing(false);
-                // Reset to current canvas dimensions
                 if (canvasEditor) {
                   setDimensions({
                     width: canvasEditor.width,
@@ -117,5 +108,4 @@ function CanvasSizePanel() {
     </div>
   );
 }
-
 export default CanvasSizePanel;
