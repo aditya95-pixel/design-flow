@@ -53,7 +53,6 @@ function PreTemplatesList() {
           <span className="text-gray-400 text-sm">No Preview Available</span>
         </div>
       )}
-
           </div>
         ))}
       </div>
