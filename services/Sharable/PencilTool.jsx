@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import {fabric} from 'fabric';
 
 function PencilTool() {
-    const { canvasEditor, setCanvasEditor,setUndoStack, setRedoStack } = useCanvasHook();
+    const { canvasEditor, setCanvasEditor, setUndoStack, setRedoStack } = useCanvasHook();
     const isDrawing = React.useRef(false);
     const path = React.useRef(null);
     const [brushColor, setBrushColor] = useState('#000000');
     const [brushSize, setBrushSize] = useState(3);
+    
     useEffect(() => {
         if (!canvasEditor) return;
 
         const handleMouseDown = (options) => {
-            if (options.e.button !== 0) return; // Only draw on left click
+            if (options.e.button !== 0) return; 
 
             isDrawing.current = true;
-            canvasEditor.selection = false; // Disable selection
+            canvasEditor.selection = false; 
             setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
             setRedoStack([]);
 
@@ -25,24 +27,32 @@ function PencilTool() {
                 fill: '',
                 strokeLineCap: 'round',
                 strokeLineJoin: 'round',
-                selectable: false
+                selectable: false,
+                skipOffscreen: false 
             });
             canvasEditor.add(path.current);
+            canvasEditor.requestRenderAll(); 
         };
 
         const handleMouseMove = (options) => {
             if (!isDrawing.current || !path.current) return;
 
             const { x, y } = options.pointer;
-            path.current.path.push(['L', x, y]);
-            canvasEditor.requestRenderAll();
+            const newPath = path.current.path.concat([['L', x, y]]);
+            path.current.set({ path: newPath });
+            path.current.setCoords();
+            path.current.dirty = true; 
+            canvasEditor.renderAll();
         };
 
         const handleMouseUp = () => {
             isDrawing.current = false;
+            if (path.current) {
+                path.current.setCoords();
+                canvasEditor.requestRenderAll();
+            }
             path.current = null;
-            canvasEditor.selection = true; // Re-enable selection
-            
+            canvasEditor.selection = true; 
         };
 
         canvasEditor.on('mouse:down', handleMouseDown);
@@ -89,6 +99,7 @@ function PencilTool() {
                             if (!canvasEditor) return;
                             setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
                             setRedoStack([]);
+                            canvasEditor.clear(); // Clear the canvas
                         }}
                     >
                         Clear
