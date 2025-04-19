@@ -19,9 +19,9 @@ TRANSFORMATIONS = {
         'desc': "Add realistic drop shadow effect"
     },
     'Contrast': {
-        'function': lambda img: adjust_contrast(img, 1.5),
-        'needs_input': False,
-        'desc': "Enhance image contrast by 50%"
+        'function': lambda img, factor=1.5: adjust_contrast(img, factor),
+        'needs_input': True,
+        'desc': "Enhance image contrast by custom percentage"
     },
     'Grayscale': {
         'function': lambda img: img.convert('L'),
@@ -29,9 +29,9 @@ TRANSFORMATIONS = {
         'desc': "Convert to black and white"
     },
     'Blur': {
-        'function': lambda img: img.filter(ImageFilter.GaussianBlur(10)),
-        'needs_input': False,
-        'desc': "Apply Gaussian blur with radius 10"
+        'function': lambda img, radius=10: img.filter(ImageFilter.GaussianBlur(radius)),
+        'needs_input': True,
+        'desc': "Apply Gaussian blur with custom radius"
     },
     'Flip': {
         'function': lambda img: img.transpose(Image.FLIP_LEFT_RIGHT),
@@ -64,6 +64,11 @@ with st.sidebar:
         format_func=lambda x: f"✨ {x}"
     )
     if selected_transform:
+        user_input = None
+        if selected_transform == "Contrast":
+            user_input = st.slider("Contrast Percentage", min_value=50, max_value=200, value=150, step=10)
+        elif selected_transform == "Blur":
+            user_input = st.slider("Blur Radius", min_value=1, max_value=50, value=10, step=1)
         st.caption(TRANSFORMATIONS[selected_transform]['desc'])
 
 col1, col2 = st.columns(2)
@@ -101,8 +106,7 @@ st.markdown("""
 ### Features Included:
 - **Background Remove**
 - **AI Drop Shadow**
-- **Contrast**
-- **Grayscale**
+- **Contrast/Grayscale**
 - **Blur**
 - **Flip**
 """)
