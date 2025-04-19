@@ -6,7 +6,6 @@ function Opacity() {
     const onOpacityChange=(value)=>{
       if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
       const activeObject=canvasEditor.getActiveObject();
       activeObject.set({
@@ -22,5 +21,4 @@ function Opacity() {
     </div>
   )
 }
-
 export default Opacity
