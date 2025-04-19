@@ -8,7 +8,7 @@ function SideBarSettings({ selectedOption }) {
       <h2 className='font-bold'>{selectedOption?.name}</h2>
       <p className='text-sm dark:text-cyan-200 text-red-800 font-bold'>{selectedOption?.desc}</p>
 
-      <div className='mt-7'>
+      <div className='mt-7 dark:text-cyan-600 text-cyan-200'>
         {selectedOption?.link ? (
           <Button className="bg-red-600">
           <a
