@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StickerList } from '../Options';
 import Image from 'next/image';
 import { fabric } from 'fabric';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 import { useParams } from 'next/navigation';
 import ImageKit from 'imagekit';
 

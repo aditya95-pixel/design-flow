@@ -1,6 +1,6 @@
 import React from 'react'
 import {Slider} from "../../components/ui/slider";
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 function BorderWidth() {
     const {canvasEditor,setCanvasEditor,setUndoStack,setRedoStack}=useCanvasHook();
     const onWidthChange=(value)=>{

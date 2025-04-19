@@ -4,7 +4,7 @@ import {Button} from "../../components/ui/button";
 import { useParams } from 'next/navigation';
 import {Loader2Icon}  from 'lucide-react';
 import {fabric} from "fabric";
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 function UploadImage() {
     const {designId}=useParams();
     const[loading,setLoading]=useState(false);

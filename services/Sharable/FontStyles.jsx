@@ -1,7 +1,7 @@
 import React from 'react'
 import { Toggle } from "../../components/ui/toggle"
 import { Bold, Italic, Underline } from 'lucide-react'
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page'
+import { useCanvasHook } from '../../context/useCanvasHook'
 function FontStyles() {
     const {canvasEditor,setCanvasEditor,setUndoStack,setRedoStack}=useCanvasHook();
     const activeObject=canvasEditor.getActiveObject();

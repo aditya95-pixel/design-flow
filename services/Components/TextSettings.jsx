@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 import { fabric } from 'fabric';
 import { ThemeProvider } from '../../context/ThemeContext';
 function TextSettings() {

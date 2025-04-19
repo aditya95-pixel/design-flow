@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ColorPickerEditor from './ColorPickerEditor'
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 function FillColor() {
   const [color,setColor]=useState("#000");
   const {canvasEditor,setCanvasEditor,setUndoStack,setRedoStack}=useCanvasHook();

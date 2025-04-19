@@ -6,7 +6,7 @@ import {
 } from "../../components/ui/popover";
 import { Trash } from 'lucide-react';
 import { TextSettingsList } from '../Options';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 import FontStyles from "../Sharable/FontStyles";
 function TextSettingsNavbar() {
   const {canvasEditor,setCanvasEditor,setUndoStack,setRedoStack}=useCanvasHook();

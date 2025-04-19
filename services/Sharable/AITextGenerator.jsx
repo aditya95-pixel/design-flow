@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 function AITextGenerator() {
   const { canvasEditor,setCanvasEditor,setUndoStack,setRedoStack } = useCanvasHook();
   const [prompt, setPrompt] = useState('');

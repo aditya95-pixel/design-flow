@@ -2,7 +2,7 @@ import React from 'react'
 import { ShapeList } from '../Options'
 import Image from 'next/image';
 import { fabric} from 'fabric';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 function Shapes() {
     const {canvasEditor,setCanvasEditor,setUndoStack,setRedoStack}=useCanvasHook();
     const onShapeSelect=(shape)=>{

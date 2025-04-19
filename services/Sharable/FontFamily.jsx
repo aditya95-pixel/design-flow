@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontFamilyList } from '../Options'
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page'
+import { useCanvasHook } from '../../context/useCanvasHook'
 function FontFamily() {
     const {canvasEditor,setCanvasEditor,setUndoStack,setRedoStack}=useCanvasHook();
         const onFontFamilyChange=(value)=>{

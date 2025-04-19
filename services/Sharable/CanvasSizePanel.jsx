@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '../../components/ui/button';
 import { Input } from '../../components/ui/input';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 import { toast } from 'sonner';
 function CanvasSizePanel() {
   const { canvasEditor,setCanvasEditor,setUndoStack,setRedoStack } = useCanvasHook();

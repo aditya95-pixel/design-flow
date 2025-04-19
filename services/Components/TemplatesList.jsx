@@ -2,7 +2,7 @@ import { api } from '../../convex/_generated/api';
 import { useQuery } from 'convex/react'
 import React from 'react'
 import Image from 'next/image';
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 function TemplatesList() {
     const {canvasEditor,setCanvasEditor,setUndoStack,setRedoStack}=useCanvasHook();
     const templateList=useQuery(api.templates.GetAllTemplatest);

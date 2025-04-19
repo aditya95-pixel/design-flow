@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React,{useEffect,useState} from 'react'
 import { Button } from '../../components/ui/button';
 import {Input} from "../../components/ui/input"
-import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
+import { useCanvasHook } from '../../context/useCanvasHook';
 import {fabric} from "fabric";
 import { ThemeProvider } from '../../context/ThemeContext';
 function SearchImages() {

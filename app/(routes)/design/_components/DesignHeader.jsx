@@ -2,7 +2,7 @@ import { Button } from '../../../../components/ui/button';
 import { UserButton } from '@stackframe/stack'
 import { Download, Save, Sun, Moon } from 'lucide-react';
 import React,{useEffect,useState} from 'react'
-import { useCanvasHook } from '../[designId]/page';
+import { useCanvasHook } from '../../../../context/useCanvasHook';
 import { useMutation } from 'convex/react';
 import { api } from '../../../../convex/_generated/api';
 import { useParams } from 'next/navigation';
