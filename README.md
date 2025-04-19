@@ -75,8 +75,8 @@ DesignFlow is a powerful web-based design studio that enables users to create st
 - Stack Auth account
 ### Setup
 ```
-git clone https://github.com/aditya95-pixel/DesignFlow.git
-cd DesignFlow
+git clone https://github.com/aditya95-pixel/design-flow.git
+cd design-flow
 npm i
 ```
 Create `.env.local` file
