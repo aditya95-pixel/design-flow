@@ -2,19 +2,16 @@ import React, { useState,useEffect } from 'react'
 import ShapesSettings from "../Sharable/ShapesSettings";
 import { useCanvasHook } from '../../app/(routes)/design/[designId]/page';
 import TextSettingsNavbar from "../Components/TextSettingsNavBar"
-
 function TopNavBar() {
     const { canvasEditor, handleUndo, handleRedo, undoStack, redoStack } = useCanvasHook();
     const [showShapeSettings,setShowShapeSettings]=useState(false);
     const [enableTextSettings,setEnableTextSettings]=useState(false);
-    
     useEffect(() => {
         if(canvasEditor){
             const activeObject=canvasEditor.getActiveObject();
             console.log(activeObject, canvasEditor);
         }
     },[canvasEditor]);
-    
     if(canvasEditor){
         canvasEditor.on("selection:created",function(e){
             const activeObject=canvasEditor.getActiveObject();
@@ -43,7 +40,6 @@ function TopNavBar() {
             setEnableTextSettings(false);
         })
     }
-    
     return (
         <div className='p-2 text-white'>
             <div className="flex items-center space-x-4">
@@ -67,5 +63,4 @@ function TopNavBar() {
         </div>
     )
 }
-
 export default TopNavBar
