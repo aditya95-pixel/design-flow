@@ -35,7 +35,6 @@ function SearchImages() {
     const addImageToCanvas = (imageUrl) => {
         if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
         fabric.Image.fromURL(imageUrl, (img) => {
             canvasEditor.add(img);
@@ -69,5 +68,4 @@ function SearchImages() {
     </div>
   )
 }
-
 export default SearchImages
