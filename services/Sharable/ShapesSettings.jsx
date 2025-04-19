@@ -26,7 +26,7 @@ function ShapesSettings() {
         <div key={index} className="hover:scale-105 transition-all cursor-pointer">
             <Popover>
               <PopoverTrigger asChild>
-                <shape.icon className='dark:text-cyan-200 text-cyan-800 font-bold'/>
+                <shape.icon className='dark:text-cyan-200 text-red-800 font-bold'/>
               </PopoverTrigger>
               <PopoverContent className="bg-black text-red-600 font-bold">
                 {shape.component}
@@ -34,7 +34,7 @@ function ShapesSettings() {
             </Popover>
         </div>
       ))}
-      <Trash onClick={onDelete} className="hover:scale-105 transition-all cursor-pointer dark:text-cyan-200 text-cyan-800"/>
+      <Trash onClick={onDelete} className="hover:scale-105 transition-all cursor-pointer dark:text-cyan-200 text-red-800"/>
     </div>
   )
 }
