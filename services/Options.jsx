@@ -1,4 +1,4 @@
-import { Folder, Home, LayoutDashboardIcon, WalletCardsIcon,LayoutTemplate,ShapesIcon,Image,Type,Sparkle,Component,Settings,Palette,Square,Minus,Blend,SquareRoundCorner,ArrowUp,ArrowDown,BookType,Sticker } from "lucide-react";
+import { Folder, Home, LayoutDashboardIcon, WalletCardsIcon,LayoutTemplate,ShapesIcon,Image,Type,Sparkle,Component,Settings,Palette,Square,Minus,Blend,SquareRoundCorner,ArrowUp,ArrowDown,BookType,Sticker,Pencil } from "lucide-react";
 import BackgroundSetting from "./Components/BackgroundSetting";
 import AddImageSetting from "./Components/AddImageSetting";
 import Elements from "./Components/Elements";
@@ -13,6 +13,7 @@ import Stickers from "./Sharable/Stickers";
 import TemplateList from "./Components/TemplatesList";
 import AITextGenerator from "./Sharable/AITextGenerator";
 import CanvasSizePanel from "./Sharable/CanvasSizePanel"
+import PencilTool from "./Sharable/PencilTool"
 export const WorkspaceMenu=[
   {
     name:"Home",
@@ -129,6 +130,12 @@ export const sideBarMenu = [
         desc: 'Add Text and Heading',
         icon: Type,
         component:<TextSettings/>
+    },
+    {
+        name:"Draw",
+        desc:"Add Drawings",
+        icon:Pencil,
+        component:<PencilTool/>
     },
     {
         name: 'AI',
