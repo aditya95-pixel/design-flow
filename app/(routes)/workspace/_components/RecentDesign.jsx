@@ -42,7 +42,6 @@ function RecentDesign() {
       
       if (result) {
         toast.success("Design deleted successfully");
-        // Refresh the designs list
         await GetRecentDesigns();
       }
     } catch (error) {
@@ -85,8 +84,6 @@ function RecentDesign() {
                   </div>
                 )}
               </div>
-              
-              {/* Delete button */}
               <Button
                 variant="destructive"
                 size="sm"
@@ -99,8 +96,6 @@ function RecentDesign() {
               >
                 <Trash2 className="h-4 w-4" />
               </Button>
-              
-              {/* Design name or other info */}
               <div className="p-2">
                 <p className="text-sm truncate dark:text-white text-black">{design?.name || "Untitled Design"}</p>
               </div>
