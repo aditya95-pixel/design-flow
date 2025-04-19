@@ -8,8 +8,10 @@ function SideBar() {
 
   const handleOptionClick = (menu) => {
     if (selectedOption?.name === menu.name) {
+      // Toggle settings visibility if clicking the same option
       setShowSettings(!showSettings);
     } else {
+      // Show settings when selecting a different option
       setSelectedOption(menu);
       setShowSettings(true);
     }
@@ -26,8 +28,8 @@ function SideBar() {
             }`}
             onClick={() => handleOptionClick(menu)}
           >
-            <menu.icon className='text-red-600'/>
-            <h2 className='mt-1 text-red-600'>{menu.name}</h2>
+            <menu.icon className='dark:text-cyan-200 text-red-800 '/>
+            <h2 className='mt-1 dark:text-cyan-200 text-red-800'>{menu.name}</h2>
           </div>
         ))}
       </div>
