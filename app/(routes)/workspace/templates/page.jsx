@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import PreTemplatesList from "../_components/PreTemplatesList";
 import { useTheme } from '../../../../context/ThemeContext';
+
 function Templates() {
   return (
     <div className="p-10 w-full dark:bg-gray-900 bg-rose-100 min-h-screen">
@@ -14,5 +15,4 @@ function Templates() {
     </div>
   )
 }
-
 export default Templates
