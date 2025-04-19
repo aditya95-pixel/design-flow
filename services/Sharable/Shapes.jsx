@@ -8,7 +8,6 @@ function Shapes() {
     const onShapeSelect=(shape)=>{
         if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
         const properties={
             left: 100,
@@ -123,5 +122,4 @@ function Shapes() {
     </div>
   )
 }
-
 export default Shapes
