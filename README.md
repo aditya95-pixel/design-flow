@@ -22,6 +22,12 @@ DesignFlow is a powerful web-based design studio that enables users to create st
     - AI content generation (Gemini 2.0 Flash)
  - **Stickers**:
     - Extensive emoji library
+ - **Drawing Tool**:
+    - Freehand drawing with mouse using pencil tool
+ - **Undo / Redo functionality for canvas** 
+### Real-time collaboration
+- Multiple users can work on the same canvas simultaneously
+
 ### Customization Options
 - Color adjustment
 - Border styling
@@ -110,3 +116,5 @@ python app.py
 cd backend
 streamlit run imagetransformer.py
 ```
+### Deployment
+The project has been successfully deployed (except for AI text generation, which is currently disabled due to API rate limits).All other features are live and functional.
