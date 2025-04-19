@@ -7,7 +7,6 @@ function TextSettings() {
     const onAddTextClick=(type)=>{
         if(!canvasEditor) return;
         setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-        // Clear redo stack when a new action is performed
         setRedoStack([]);
         if(canvasEditor){
             if(type=="Heading"){
@@ -55,7 +54,6 @@ function TextSettings() {
                 }
             }
         };
-
         document.addEventListener('keydown', handleKeyDown);
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
@@ -72,5 +70,4 @@ function TextSettings() {
     </div>
   )
 }
-
 export default TextSettings
