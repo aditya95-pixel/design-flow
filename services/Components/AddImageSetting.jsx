@@ -10,5 +10,4 @@ function AddImageSetting() {
     </div>
   )
 }
-
 export default AddImageSetting
