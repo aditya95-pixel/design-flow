@@ -7,7 +7,6 @@ function BorderColor() {
     const onColorChange=(color)=>{
       if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
       setColor(color);
       const activeObject=canvasEditor.getActiveObject();
@@ -24,5 +23,4 @@ function BorderColor() {
     </div>
   )
 }
-
 export default BorderColor
