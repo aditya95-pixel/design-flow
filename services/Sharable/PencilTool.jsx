@@ -99,7 +99,6 @@ function PencilTool() {
                             if (!canvasEditor) return;
                             setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
                             setRedoStack([]);
-                            canvasEditor.clear(); // Clear the canvas
                         }}
                     >
                         Clear
