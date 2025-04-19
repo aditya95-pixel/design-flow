@@ -6,7 +6,6 @@ function FontFamily() {
         const onFontFamilyChange=(value)=>{
           if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
             const activeObject=canvasEditor.getActiveObject();
           activeObject.set({
@@ -27,5 +26,4 @@ function FontFamily() {
     </div>
   )
 }
-
 export default FontFamily
