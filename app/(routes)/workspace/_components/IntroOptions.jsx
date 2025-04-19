@@ -30,18 +30,28 @@ function IntroOptions() {
 
   return (
     <div className="min-h-screen mt-2 px-4 sm:px-6 lg:px-8 font-sans dark:bg-gray-900 bg-rose-100">
+      {/* Banner Section */}
       <div className='relative'>
+        <Image 
+          src={"/banner-home.png"}
+          alt="banner" 
+          width={1800} 
+          height={300}
+          className='w-full h-[150px] sm:h-[180px] md:h-[200px] rounded-xl dark: md:rounded-2xl object-cover mt-10 dark:hidden'
+        />
         <Image 
           src={"/banner.png"}
           alt="banner" 
           width={1800} 
           height={300}
-          className='w-full h-[150px] sm:h-[180px] md:h-[200px] rounded-xl dark: md:rounded-2xl object-cover mt-10'
+          className='w-full h-[150px] sm:h-[180px] md:h-[200px] rounded-xl dark: md:rounded-2xl object-cover mt-10 hidden dark:block'
         />
         <h2 className='text-2xl sm:text-3xl absolute bottom-5 left-5 sm:left-10 dark:text-white text-white font-medium'>
           Workspace
         </h2>
       </div>
+
+      {/* Options Grid */}
       <div className='mt-2 sm:mt-10 font-sa'>
         <div className='grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4 sm:gap-6 justify-items-center'>
           {canvasSizeOptions.map((option, index) => (
