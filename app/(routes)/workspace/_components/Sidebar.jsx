@@ -13,7 +13,7 @@ function Sidebar() {
 
   const handleMenuClick = (menuPath) => {
     router.push(menuPath);
-    setIsMobileOpen(false); // Close sidebar on mobile after selection
+    setIsMobileOpen(false);
   };
 
   const toggleSidebar = () => {
@@ -22,7 +22,6 @@ function Sidebar() {
 
   return (
     <div className='font-sans'>
-      {/* Toggle Button - Shows on all screens */}
       <button 
         className={`fixed ${isOpen ? 'left-64' : 'left-20'} top-18 z-50 bg-gray-800 p-2 rounded-lg transition-all duration-300 hidden md:block`}
         onClick={toggleSidebar}
@@ -33,16 +32,12 @@ function Sidebar() {
           <ChevronRight className="text-white h-6 w-6" />
         )}
       </button>
-
-      {/* Mobile Hamburger Button - Shows only on mobile */}
       <button 
         className="md:hidden fixed top-18 left-4 z-50 bg-gray-800 p-2 rounded-lg"
         onClick={() => setIsMobileOpen(!isMobileOpen)}
       >
         <Menu className="text-white h-6 w-6" />
       </button>
-
-      {/* Sidebar */}
       <div className={`
         fixed md:relative inset-y-0 top-0 left-0 
         transform ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} 
@@ -51,7 +46,6 @@ function Sidebar() {
         z-40 ${isOpen ? 'w-64' : 'w-20'} 
         dark:bg-gray-950 bg-rose-50 shadow-sm p-4 flex flex-col
       `}>
-        {/* Create Button */}
         <div className={`p-1 mb-6 ${!isOpen ? 'flex justify-center' : ''}`}>
   <CustomCanvasDialog>
     <div className={`flex items-center ${isOpen ? 'justify-start space-x-2' : 'justify-center'} bg-red-600 text-black rounded-lg p-3 hover:bg-red-700 transition-colors cursor-pointer w-full`}>
@@ -60,9 +54,6 @@ function Sidebar() {
     </div>
   </CustomCanvasDialog>
 </div>
-
-
-        {/* Menu Items */}
         <div className='flex-1 overflow-y-auto'>
           {WorkspaceMenu.map((menu, index) => (
             <SidebarMenuItem 
@@ -75,8 +66,6 @@ function Sidebar() {
           ))}
         </div>
       </div>
-
-      {/* Overlay for mobile when sidebar is open */}
       {isMobileOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
@@ -97,7 +86,7 @@ function SidebarMenuItem({ menu, isActive, onClick, isCollapsed }) {
         ${isCollapsed ? 'px-2' : ''}
       `}
       onClick={onClick}
-      title={isCollapsed ? menu.name : ''} // Show tooltip when collapsed
+      title={isCollapsed ? menu.name : ''} 
     >
       <menu.icon className={`h-5 w-5 ${isActive ? 'text-red-900' : 'text-red-600'}`} />
       {!isCollapsed && (
