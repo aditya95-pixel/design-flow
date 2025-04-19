@@ -9,7 +9,6 @@ function FontStyles() {
     {
         if(!canvasEditor) return;
         setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-        // Clear redo stack when a new action is performed
         setRedoStack([]);
         if(activeObject){
             if(type=="bold"){
@@ -53,5 +52,4 @@ function FontStyles() {
     </div>
   )
 }
-
 export default FontStyles
