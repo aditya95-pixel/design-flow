@@ -1,34 +1,28 @@
 "use client"
-
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { XIcon } from "lucide-react"
 import { cn } from "../../lib/utils";
-
 function Dialog({
   ...props
 }) {
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
-
 function DialogTrigger({
   ...props
 }) {
   return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
 }
-
 function DialogPortal({
   ...props
 }) {
   return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
 }
-
 function DialogClose({
   ...props
 }) {
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
-
 function DialogOverlay({
   className,
   ...props
@@ -43,7 +37,6 @@ function DialogOverlay({
       {...props} />
   );
 }
-
 function DialogContent({
   className,
   children,
@@ -69,7 +62,6 @@ function DialogContent({
     </DialogPortal>
   );
 }
-
 function DialogHeader({
   className,
   ...props
@@ -81,7 +73,6 @@ function DialogHeader({
       {...props} />
   );
 }
-
 function DialogFooter({
   className,
   ...props
@@ -93,7 +84,6 @@ function DialogFooter({
       {...props} />
   );
 }
-
 function DialogTitle({
   className,
   ...props
@@ -105,7 +95,6 @@ function DialogTitle({
       {...props} />
   );
 }
-
 function DialogDescription({
   className,
   ...props
@@ -117,7 +106,6 @@ function DialogDescription({
       {...props} />
   );
 }
-
 export {
   Dialog,
   DialogClose,
