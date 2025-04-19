@@ -7,7 +7,6 @@ function BackgroundSetting() {
     const onColorChange=(color)=>{
       if(!canvasEditor) return;
       setUndoStack(prev => [...prev, canvasEditor.toJSON()]);
-      // Clear redo stack when a new action is performed
       setRedoStack([]);
       setBgColor(color);
       canvasEditor?.set({
@@ -25,5 +24,4 @@ function BackgroundSetting() {
     </div>
   )
 }
-
 export default BackgroundSetting
