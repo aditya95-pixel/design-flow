@@ -8,10 +8,8 @@ function SideBar() {
 
   const handleOptionClick = (menu) => {
     if (selectedOption?.name === menu.name) {
-      // Toggle settings visibility if clicking the same option
       setShowSettings(!showSettings);
     } else {
-      // Show settings when selecting a different option
       setSelectedOption(menu);
       setShowSettings(true);
     }
