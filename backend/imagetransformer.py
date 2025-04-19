@@ -55,7 +55,7 @@ def adjust_contrast(img, factor):
 
 st.title("🖼️ Image Transformer")
 st.markdown("Apply transformations")
-
+user_input = None
 with st.sidebar:
     st.header("Transformations")
     selected_transform = st.selectbox(
@@ -64,12 +64,12 @@ with st.sidebar:
         format_func=lambda x: f"✨ {x}"
     )
     if selected_transform:
-        user_input = None
         if selected_transform == "Contrast":
-            user_input = st.slider("Contrast Percentage", min_value=50, max_value=200, value=150, step=10)
+            user_input = st.slider("Contrast Percentage",min_value=0.5,max_value=2.0,value=1.5,step=0.1)
         elif selected_transform == "Blur":
             user_input = st.slider("Blur Radius", min_value=1, max_value=50, value=10, step=1)
         st.caption(TRANSFORMATIONS[selected_transform]['desc'])
+        
 
 col1, col2 = st.columns(2)
 uploaded_file = st.file_uploader(
@@ -87,7 +87,10 @@ if uploaded_file is not None:
         with st.spinner(f"Applying {selected_transform}..."):
             try:                
                 transform = TRANSFORMATIONS[selected_transform]
-                transformed_img = transform['function'](original_img)
+                if transform['needs_input']:
+                    transformed_img = transform['function'](original_img, user_input)
+                else:
+                    transformed_img = transform['function'](original_img)
                 with col2:
                     st.subheader("Transformed Image")
                     st.image(transformed_img, use_container_width=True)
