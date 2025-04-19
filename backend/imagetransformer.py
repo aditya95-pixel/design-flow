@@ -101,7 +101,8 @@ st.markdown("""
 ### Features Included:
 - **Background Remove**
 - **AI Drop Shadow**
-- **Contrast/Grayscale**
+- **Contrast**
+- **Grayscale**
 - **Blur**
 - **Flip**
 """)
