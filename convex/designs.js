@@ -6,7 +6,7 @@ export const CreateNewDesign=mutation({
         name:v.string(),
         width:v.number(),
         height:v.number(),
-        uid:v.id("users")
+        uid:v.optional(v.id("users"))
     },
     handler:async (ctx,args)=>{
         const result=await ctx.db.insert("designs",{
