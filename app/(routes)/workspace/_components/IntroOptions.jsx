@@ -13,11 +13,17 @@ function IntroOptions() {
   const router = useRouter();
 
   const OnCanvasOptionSelect = async (option) => {
+    if (!userDetail?._id) {
+      toast.error("User not authenticated. Please log in.");
+      return;
+    }
+  
     toast("Loading...");
     const result = await createDesignRecord({
       name: option.name,
       width: option.width,
       height: option.height,
+      uid: userDetail?._id
     });
     router.push("/design/" + result);
   }
