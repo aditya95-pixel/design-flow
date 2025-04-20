@@ -13,7 +13,7 @@ export default defineSchema({
         height:v.number(),
         jsonTemplate:v.optional(v.any()),
         imagePreview:v.optional(v.string()),
-        uid:v.id("users")
+        uid:v.optional(v.id("users"))
     }),
 
     templates:defineTable({
