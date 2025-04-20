@@ -131,12 +131,14 @@ export const sideBarMenu = [
         icon: Type,
         component:<TextSettings/>
     },
+    /*
     {
         name:"Draw",
         desc:"Add Drawings",
         icon:Pencil,
         component:<PencilTool/>
     },
+    */
     {
         name: 'AI',
         desc: 'More AI Feature to add content',
