@@ -117,6 +117,6 @@ cd backend
 streamlit run imagetransformer.py
 ```
 ### Deployment
-The project has been successfully deployed (except for AI text generation, which is currently disabled due to API rate limits).All other features are live and functional.
+The project has been successfully deployed using Vercel (except for AI text generation, which is currently disabled due to API rate limits).All other features are live and functional.
 
 This site link: [DesignFlow](https://design-flow-topaz.vercel.app/workspace)
