@@ -10,6 +10,7 @@ function Provider({children}) {
   const createNewUserMutation=useMutation(api.users.CreatedNewUser);
   const [userDetail,setUserDetail]=useState(null);
   useEffect(()=>{
+    console.log(user);
     user&&CreateUser();
   },[user])
   const CreateUser=async ()=>{

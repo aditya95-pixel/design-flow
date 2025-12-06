@@ -12,7 +12,7 @@ function SideBarSettings({ selectedOption }) {
                 </p>
             </div>
 
-            <div className='mt-4 flex-1 overflow-y-auto'>
+            <div className='mt-4 flex-1 overflow-y-auto text-cyan-600'>
                 {selectedOption?.link ? (
                     <Button className="w-full bg-red-600 hover:bg-red-700 text-white rounded-lg py-2">
                         <a

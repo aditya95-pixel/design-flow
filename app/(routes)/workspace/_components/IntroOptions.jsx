@@ -13,6 +13,7 @@ function IntroOptions() {
   const router = useRouter();
 
   const OnCanvasOptionSelect = async (option) => {
+    console.log("hello",userDetail?._id);
     if (!userDetail?._id) {
       toast.error("User not authenticated. Please log in.");
       return;
