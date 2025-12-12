@@ -25,7 +25,7 @@
     "fabric": "^5.5.2",
     "imagekit": "^6.0.0",
     "lucide-react": "^0.487.0",
-    "next": "^15.2.6",
+    "next": "15.2.8",
     "next-themes": "^0.4.6",
     "onnxruntime-web": "^1.21.0-dev.20250206-d981b153d3",
     "react": "^19.2.1",
